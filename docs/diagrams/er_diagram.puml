@@ -1,0 +1,34 @@
+@startuml
+entity "Department" as D {
+  *id : INTEGER <<PK>>
+  name : TEXT
+}
+
+entity "Employee" as E {
+  *id : INTEGER <<PK>>
+  name : TEXT
+  department : INTEGER <<FK>>
+  position : TEXT
+  total_days : INTEGER
+  used_days : INTEGER
+}
+
+entity "VacationRequest" as VR {
+  *id : INTEGER <<PK>>
+  emp_id : INTEGER <<FK>>
+  start_date : DATE
+  end_date : DATE
+  days : INTEGER
+  status : TEXT
+}
+
+entity "HRReport" as HR {
+  *id : INTEGER <<PK>>
+  report_date : DATE
+  total_employees : INTEGER
+  total_days_used : INTEGER
+}
+
+D ||--o{ E
+E ||--o{ VR
+@enduml
