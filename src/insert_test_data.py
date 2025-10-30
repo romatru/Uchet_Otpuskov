@@ -12,7 +12,8 @@ def insert(path="vacations.db"):
     employees = [
         ("Иванов И.И.", 1, "Бухгалтер", 28, 5),
         ("Петров П.П.", 2, "Программист", 28, 10),
-        ("Сидорова А.А.", 3, "HR", 28, 7)
+        ("Сидоров Г.В.", 3, "HR", 28, 7),
+        ("Трушков Р.Е.", 2, "Программист", 28, 0)
     ]
     c.executemany("INSERT INTO Employee (name, department, position, total_days, used_days) VALUES (?, ?, ?, ?, ?)", employees)
 
@@ -20,7 +21,8 @@ def insert(path="vacations.db"):
     requests = [
         (1, "2025-06-01", "2025-06-14", 14, "APPROVED"),
         (2, "2025-07-10", "2025-07-20", 10, "PENDING"),
-        (3, "2025-08-01", "2025-08-15", 14, "APPROVED")
+        (3, "2025-08-01", "2025-08-15", 14, "APPROVED"),
+        (4, "2025-10-01", "2025-10-15", 14, "APPROVED")
     ]
     c.executemany("INSERT INTO VacationRequest (emp_id, start_date, end_date, days, status) VALUES (?, ?, ?, ?, ?)", requests)
 
